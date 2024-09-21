@@ -10,7 +10,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key="AIzaSyBrIjH5_avcoAu2Wsq-nx_3KyuZ-lqr_zc")
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
 llm = genai.GenerativeModel("gemini/gemini-1.5-pro")
 
 class TripAgents():

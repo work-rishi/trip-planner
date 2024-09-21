@@ -5,10 +5,12 @@ import streamlit as st
 import datetime
 import sys
 import os
+import time
 from dotenv import load_dotenv
 
-load_dotenv()
 st.set_page_config(page_icon="✈️", layout="wide")
+load_dotenv()
+os.environ["GEMINI_API_KEY"] = os.getenv("GEMINI_API_KEY")
 
 
 class TripCrew:
@@ -34,6 +36,7 @@ class TripCrew:
             self.interests,
             self.date_range
         )
+        time.sleep(30)  # Sleep for 30 seconds
 
         gather_task = tasks.gather_task(
             local_expert_agent,
@@ -41,6 +44,7 @@ class TripCrew:
             self.interests,
             self.date_range
         )
+        time.sleep(30)  # Sleep for 30 seconds
 
         plan_task = tasks.plan_task(
             travel_concierge_agent,
@@ -48,6 +52,7 @@ class TripCrew:
             self.interests,
             self.date_range
         )
+        time.sleep(30)  # Sleep for 30 seconds
 
         crew = Crew(
             agents=[
